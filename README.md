@@ -11,6 +11,11 @@ http://localhost:8082/filteredimage?image_url=https://images.freeimages.com/imag
 
 
 
+## Reference
+### Jimp
+[Jimp](https://www.npmjs.com/package/jimp)
+[Image Processing with Node and Jimp](https://blog.logrocket.com/image-processing-with-node-and-jimp/)
+
 
 
 The project is split into three parts:
