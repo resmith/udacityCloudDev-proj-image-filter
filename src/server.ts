@@ -8,7 +8,18 @@ import fs from 'fs';
 
 (async () => {
 
-  let mime = {
+  interface mimeType {
+    html: string,
+    txt: string,
+    css: string,
+    gif: string,
+    jpg: string,
+    png: string,
+    svg: string,
+    js: string
+  }
+
+  let mime: mimeType = {
     html: 'text/html',
     txt: 'text/plain',
     css: 'text/css',
@@ -41,18 +52,21 @@ import fs from 'fs';
     
       const outpath = await filterImageFromURL(image_url);
       let extensions:Array<string> = outpath.split(".")
-      let extension:string = extensions[extensions.length - 1]
-      let type:string = mime[extension] || 'text/plain';
+      let extension:any = extensions[extensions.length - 1]
+      // let type:any = mime[extension] || 'text/plain';
+      let type:string = mime['jpg'] || 'text/plain';
 
-      // res.sendFile(outpath)
-      res.sendFile(path.resolve(outpath), function(err) {
-        if (err) {
-          console.log("sendFile error: ", err)
-        } else {
-          console.log("sent file: ", outpath)
-          deleteLocalFiles( [ outpath])
-        }
-      });
+
+
+      res.send("Hello from Bobby")
+      // res.sendFile(path.resolve(outpath), function(err) {
+      //   if (err) {
+      //     console.log("sendFile error: ", err)
+      //   } else {
+      //     console.log("sent file: ", outpath)
+      //     deleteLocalFiles( [ outpath])
+      //   }
+      // });
 
     // Another option for sending the image file
     //   var s = fs.createReadStream(outpath);
