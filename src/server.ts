@@ -53,20 +53,19 @@ import fs from 'fs';
       const outpath = await filterImageFromURL(image_url);
       let extensions:Array<string> = outpath.split(".")
       let extension:any = extensions[extensions.length - 1]
-      // let type:any = mime[extension] || 'text/plain';
       let type:string = mime['jpg'] || 'text/plain';
 
 
 
-      res.send("Hello from Bobby")
-      // res.sendFile(path.resolve(outpath), function(err) {
-      //   if (err) {
-      //     console.log("sendFile error: ", err)
-      //   } else {
-      //     console.log("sent file: ", outpath)
-      //     deleteLocalFiles( [ outpath])
-      //   }
-      // });
+      // res.send("Hello from Bobby3")
+      res.sendFile(path.resolve(outpath), function(err) {
+        if (err) {
+          console.log("sendFile error: ", err)
+        } else {
+          console.log("sent file: ", outpath)
+          deleteLocalFiles( [ outpath])
+        }
+      });
 
     // Another option for sending the image file
     //   var s = fs.createReadStream(outpath);
