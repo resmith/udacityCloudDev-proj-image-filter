@@ -1,64 +1,81 @@
 # Udagram Image Filtering Microservice
-
-Udagram is a simple cloud application developed alongside the Udacity Cloud Engineering Nanodegree. It allows users to register and log into a web client, post photos to the feed, and process photos using an image filtering microservice.
-
+This project provides a simple cloud application for the Udacity Cloud Engineering Nanodegree. It demonstrates knowledge and use of AWS Elastic Beanstalk(EB) for creation of an EB environment and deployment of applications to the EB Environment.
 
 ## Installation
+To install the application
+```
+git clone <thisRepository>
+cd <directoryClonedTo>
+npm install
+```
+
+## Running the application
+To run the application
+
+```
+cd <directoryClonedTo>
+npm run dev
+
+```
 
 
-## Example
+## Creating the EB Environment
+To deploy the application:
+
+```
+cd <directoryClonedTo>
+eb init <environmentName>
+
+```
+
+## Deploying the EB application
+```
+cd <directoryClonedTo>
+npm run build
+eb deploy
+```
+
+## Example URL
+[Local Host URL](
 http://localhost:8082/filteredimage?image_url=https://images.freeimages.com/images/large-previews/1c9/maine-at-4-45-am-1370871.jpg
+)
+
+[EB Working](
+http://udac-clouddev-imagefilter.eba-j7tysimf.us-west-2.elasticbeanstalk.com/filteredimage?image_url=https://images.freeimages.com/images/large-previews/1c9/maine-at-4-45-am-1370871.jpg
+)
 
 
 
 ## Reference
-### Jimp
+
+### Jimp 
+Jimp (Javasript Image Processor) is used for the image modification (size reduction, b&W)
+
 [Jimp](https://www.npmjs.com/package/jimp)
 [Image Processing with Node and Jimp](https://blog.logrocket.com/image-processing-with-node-and-jimp/)
 
+### Elastic BeanStalk (EB)
+[Deploying Node.js applications to Elastic Beanstalk
+](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs.html)
+
+[EB - NodeJS Getting Started](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-getstarted.html)
 
 
-The project is split into three parts:
-1. [The Simple Frontend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-frontend)
-A basic Ionic client web application which consumes the RestAPI Backend. [Covered in the course]
-2. [The RestAPI Backend](https://github.com/udacity/cloud-developer/tree/master/course-02/exercises/udacity-c2-restapi), a Node-Express server which can be deployed to a cloud service. [Covered in the course]
-3. [The Image Filtering Microservice](https://github.com/udacity/cloud-developer/tree/master/course-02/project/image-filter-starter-code), the final project for the course. It is a Node-Express application which runs a simple script to process images. [Your assignment]
+[Using the Elastic Beanstalk Node.js platform](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_nodejs.container.html)
 
-## Tasks
 
-### Setup Node Environment
+## Sample Screenshots  - Deployment
 
-You'll need to create a new node server. Open a new terminal within the project directory and run:
+![EB Deploy](./deployment_screenshots/ebDeploy-SuccessFul.png)
 
-1. Initialize a new project: `npm i`
-2. run the development server with `npm run dev`
+![EB Dashboard Confirmation](./deployment_screenshots/dashboard-successfulDeploy.png)
 
-### Create a new endpoint in the server.ts file
+![EB Dashboard Detail](./deployment_screenshots/DashboardDetail-SuccessfulDeploy.png)
 
-The starter code has a task for you to complete an endpoint in `./src/server.ts` which uses query parameter to download an image from a public URL, filter the image, and return the result.
 
-We've included a few helper functions to handle some of these concepts and we're importing it for you at the top of the `./src/server.ts`  file.
+## Sample Screenshots  - Working App
 
-```typescript
-import {filterImageFromURL, deleteLocalFiles} from './util/util';
-```
+![Local Host Working](./deployment_screenshots/localHost-Working.png)
 
-### Deploying your system
 
-Follow the process described in the course to `eb init` a new application and `eb create` a new environment to deploy your image-filter service! Don't forget you can use `eb deploy` to push changes.
-
-## Stand Out (Optional)
-
-### Refactor the course RESTapi
-
-If you're feeling up to it, refactor the course RESTapi to make a request to your newly provisioned image server.
-
-### Authentication
-
-Prevent requests without valid authentication headers.
-> !!NOTE if you choose to submit this, make sure to add the token to the postman collection and export the postman collection file to your submission so we can review!
-
-### Custom Domain Name
-
-Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
-> !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+![EB Working App](./deployment_screenshots/eb-WorkingApp.png)
