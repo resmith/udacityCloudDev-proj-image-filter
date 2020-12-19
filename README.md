@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# udacityCloudDev-proj-image-filter
-=======
 # Udagram Image Filtering Microservice
 This project provides a simple cloud application for the Udacity Cloud Engineering Nanodegree. It demonstrates knowledge and use of AWS Elastic Beanstalk(EB) for creation of an EB environment and deployment of applications to the EB Environment.
 
@@ -82,4 +79,3 @@ Jimp (Javasript Image Processor) is used for the image modification (size reduct
 
 
 ![EB Working App](./deployment_screenshots/eb-WorkingApp.png)
->>>>>>> e0e3de0a03abc6c4b474184821bb8cc82bbd0f98
